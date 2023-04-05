@@ -1,50 +1,64 @@
 //import logo from './logo.svg';
 import './App.css';
-
-import Display from './components/day1';
-import Day_2 from './components/day2';
-import Coffeeshop from './components/day3';
-import Name from './components/day4'
-import Listfunction from './components/day5';
-
-
+import Entry from './components/day6.2';
+import { Route,Routes } from 'react-router-dom';
+import Albums from './components/Album';
+import Home from './components/Home';
+import NavBar from './components/Navbar';
+import Singers from './components/Singers';
+import Usestates from './components/day8';
+import AXIOS from './components/day7';
+import List from './components/day6';
+function createEntry(items) {
+  return (
+    <Entry
+      key={items.id}
+      imgUrl={items.imgUrl}
+      name={items.name}
+      price={items.price}
+    />
+  );
+}
 function App() {
   return (
-    <div>
+
+  
+  <div>
+  <br></br>
+  <h2>day 6</h2>
+  <h1 style={{ textAlign:"left"}}> Products</h1>
+  <dl >{List.map(createEntry)}</dl>
+  <h1>------------------------------------------------------------------------</h1>
+
+  <br></br>
+  <h2>day 7 </h2>
+  <AXIOS></AXIOS>
+  <h1>------------------------------------------------------------------------</h1>
 
 
-    <br></br>
-    <h1>day1</h1>
-    <Display/>
-    <h1>---------------------------------------------------------------------</h1>
+  <br></br>
+  <h2>day 8</h2>
+  <Usestates></Usestates>
+  <h1>------------------------------------------------------------------------</h1>
 
 
-    <br></br>
-    <h1>day2</h1>
-    <Day_2/>
-    <h1>---------------------------------------------------------------------</h1>
+  <br></br>
+  <h2>day 9</h2>
+
+  <div>
+      <NavBar/>
+        <Routes>
+            <Route exact path='/' element={<Home />}></Route>
+            <Route path='/singers' element={<Singers />}></Route>
+            <Route path='/Album' element={<Albums/>}></Route>
+        </Routes>
+      </div>
 
 
-    <br></br>
-    <h1>day3</h1>
-    <Coffeeshop></Coffeeshop>
-    <h1>---------------------------------------------------------------------</h1>
 
+  </div>
 
-    <br></br>
-    <h1>day4</h1>
-    <Name/>
-    <h1>---------------------------------------------------------------------</h1>
-
-
-    <br></br>
-    <h1>day5</h1>
-    <Listfunction/>
-    <h1>---------------------------------------------------------------------</h1>
-
-
-    </div>
-   
+  
   );
 }
 
